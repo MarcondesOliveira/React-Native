@@ -1,12 +1,95 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  FlatList
+} from "react-native";
 import moment from "moment";
 import "moment/locale/pt-br";
 import todayImage from "../../assets/imgs/today.jpg";
 import commonStyles from "../commonStyles";
-import Task from '../components/Task'
+import Task from "../components/Task";
 
 export default class Agenda extends Component {
+  state = {
+    tasks: [
+      {
+        id: Math.random(),
+        desc: "Comprar o Curso de React Native",
+        estimateAt: new Date(),
+        doneAt: new Date()
+      },
+      {
+        id: Math.random(),
+        desc: "Concluir o curso",
+        estimateAt: new Date(),
+        doneAt: null
+      },
+      {
+        id: Math.random(),
+        desc: "Comprar o Curso de React Native",
+        estimateAt: new Date(),
+        doneAt: new Date()
+      },
+      {
+        id: Math.random(),
+        desc: "Concluir o curso",
+        estimateAt: new Date(),
+        doneAt: null
+      },
+      {
+        id: Math.random(),
+        desc: "Comprar o Curso de React Native",
+        estimateAt: new Date(),
+        doneAt: new Date()
+      },
+      {
+        id: Math.random(),
+        desc: "Concluir o curso",
+        estimateAt: new Date(),
+        doneAt: null
+      },
+      {
+        id: Math.random(),
+        desc: "Comprar o Curso de React Native",
+        estimateAt: new Date(),
+        doneAt: new Date()
+      },
+      {
+        id: Math.random(),
+        desc: "Concluir o curso",
+        estimateAt: new Date(),
+        doneAt: null
+      },
+      {
+        id: Math.random(),
+        desc: "Comprar o Curso de React Native",
+        estimateAt: new Date(),
+        doneAt: new Date()
+      },
+      {
+        id: Math.random(),
+        desc: "Concluir o curso",
+        estimateAt: new Date(),
+        doneAt: null
+      },
+      {
+        id: Math.random(),
+        desc: "Comprar o Curso de React Native",
+        estimateAt: new Date(),
+        doneAt: new Date()
+      },
+      {
+        id: Math.random(),
+        desc: "Concluir o curso",
+        estimateAt: new Date(),
+        doneAt: null
+      },
+    ]
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -21,18 +104,8 @@ export default class Agenda extends Component {
           </View>
         </ImageBackground>
         <View style={styles.taskContainer}>
-          <Task desc='Tarefa pendente' estimateAt={new Date()} doneAt={null} />
-          <Task desc='Tarefa concluída' estimateAt={new Date()} doneAt={new Date()} />
-          <Task desc='Tarefa pendente' estimateAt={new Date()} doneAt={null} />
-          <Task desc='Tarefa concluída' estimateAt={new Date()} doneAt={new Date()} />
-          <Task desc='Tarefa pendente' estimateAt={new Date()} doneAt={null} />
-          <Task desc='Tarefa concluída' estimateAt={new Date()} doneAt={new Date()} />
-          <Task desc='Tarefa pendente' estimateAt={new Date()} doneAt={null} />
-          <Task desc='Tarefa concluída' estimateAt={new Date()} doneAt={new Date()} />
-          <Task desc='Tarefa pendente' estimateAt={new Date()} doneAt={null} />
-          <Task desc='Tarefa concluída' estimateAt={new Date()} doneAt={new Date()} />
-          <Task desc='Tarefa pendente' estimateAt={new Date()} doneAt={null} />
-          <Task desc='Tarefa concluída' estimateAt={new Date()} doneAt={new Date()} />
+          <FlatList data={this.state.tasks} keyExtractor={item => `${item.id}`}
+            renderItem={({item}) => <Task {...item} /> } />
         </View>
       </View>
     );
@@ -41,30 +114,30 @@ export default class Agenda extends Component {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
+    flex: 1
   },
   background: {
-      flex: 3,
+    flex: 3
   },
   titleBar: {
-      flex: 1,
-      justifyContent: 'flex-end',
+    flex: 1,
+    justifyContent: "flex-end"
   },
   title: {
-      fontFamily: commonStyles.fontFamily,
-      color: commonStyles.colors.secondary,
-      fontSize: 50,
-      marginLeft: 20,
-      marginBottom: 10,
+    fontFamily: commonStyles.fontFamily,
+    color: commonStyles.colors.secondary,
+    fontSize: 50,
+    marginLeft: 20,
+    marginBottom: 10
   },
   subtitle: {
-      fontFamily: commonStyles.fontFamily,
-      color: commonStyles.colors.secondary,
-      fontSize: 20,
-      marginLeft: 20,
-      marginBottom: 30,
+    fontFamily: commonStyles.fontFamily,
+    color: commonStyles.colors.secondary,
+    fontSize: 20,
+    marginLeft: 20,
+    marginBottom: 30
   },
   taskContainer: {
-      flex: 7,
+    flex: 7
   }
 });

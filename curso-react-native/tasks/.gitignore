@@ -37,7 +37,7 @@ npm-debug.log
 yarn-error.log
 
 # Android from project
-android/
+# android/
 
 # BUCK
 buck-out/
